@@ -15,7 +15,7 @@ app.use(express.json()); // Middleware to parse JSON requests
 // Serve db.json file
 app.use('/db', express.static('db.json'));
 // connect to mongoDB database
-mongoose.connect('mongodb+srv://FintechChao:George8964@maincluster.ta6dlri.mongodb.net/')
+mongoose.connect('mongodb+srv://George123:Arb8981@cluster1.pm2aufg.mongodb.net/Customer')
   .then(() => {
     console.log('Connected to MongoDB');
   })
