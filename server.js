@@ -356,8 +356,8 @@ app.get("/getUserData", async (req, res) => {
 });
 
 
-const PORT = 3001;
-app.listen(process.env.PORT || PORT, () => {
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
   console.log(`Server is running`);
 });
 
