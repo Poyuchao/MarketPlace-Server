@@ -8,7 +8,8 @@ require("dotenv").config();
 
 app.use(cors()); // Use the CORS middleware
 app.use(express.json()); // Middleware to parse JSON requests
-
+// Serve db.json file
+app.use('/db', express.static('db.json'));
 // connect to mongoDB database
 mongoose.connect('mongodb+srv://FintechChao:George8964@maincluster.ta6dlri.mongodb.net/')
   .then(() => {
