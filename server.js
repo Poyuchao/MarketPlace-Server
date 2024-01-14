@@ -4,13 +4,13 @@ const CustomerModel = require('./Model/user');
 const nodemailer=require('nodemailer');
 const cors = require('cors'); // Add this
 const app = express();
-
+require("dotenv").config();
 
 app.use(cors()); // Use the CORS middleware
 app.use(express.json()); // Middleware to parse JSON requests
 
 // connect to mongoDB database
-mongoose.connect('mongodb://127.0.0.1:27017/Customer')
+mongoose.connect('mongodb+srv://FintechChao:George8964@maincluster.ta6dlri.mongodb.net/')
   .then(() => {
     console.log('Connected to MongoDB');
   })
