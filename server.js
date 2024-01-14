@@ -2,9 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const CustomerModel = require('./Model/user');
 const nodemailer=require('nodemailer');
+const fs = require('fs').promises; // Import the promises API of fs
 const cors = require('cors'); // Add this
 const app = express();
 require("dotenv").config();
+// Assuming your images are in a directory named 'MongoDb_server' at the root of your project
+app.use('/images', express.static('MongoDb_server'));
+
 
 app.use(cors()); // Use the CORS middleware
 app.use(express.json()); // Middleware to parse JSON requests
@@ -18,6 +22,19 @@ mongoose.connect('mongodb+srv://FintechChao:George8964@maincluster.ta6dlri.mongo
   .catch(error => {
     console.error('Could not connect to MongoDB', error);
   });
+
+
+  //handle the requests to fetch products
+  app.get('/products', async (req, res) => {
+    try {
+        const data = await fs.readFile('./db.json', 'utf8'); // Adjust the path if necessary
+        const products = JSON.parse(data).products;
+        res.json(products);
+    } catch (error) {
+      console.error('Error reading products data:', error);
+      res.status(500).send('Error reading products data');
+    }
+});
 
  {/**below functions handle users updating cart requests */}
  // GET request to fetch a user's cart
@@ -357,7 +374,7 @@ app.get("/getUserData", async (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`Server is running`);
 });
