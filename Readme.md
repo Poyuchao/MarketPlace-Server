@@ -22,30 +22,90 @@ Welcome to the backend server repository for **Taiwan Good Stuff**, an e-commerc
    ```bash
    git clone <https://github.com/Poyuchao/MarketPlace-Server.git>
 
-npm install
+## Install Dependencies
+3. **npm install**
 
-npm start
+## Start the Server
+4. **npm start**
 
 
-API Endpoints
-User Management
-POST /login: Authenticate user login.
-POST /register: Register a new user account.
-POST /ForgetPassword: Request a password reset code.
-POST /reset: Reset the user's password with the verification code.
-Product Management
-GET /products: Fetch all products from db.json.
-GET /api/cart: Retrieve a user's shopping cart.
-POST /api/cart/add: Add an item to the user's cart.
-POST /api/cart/increaseQuantity: Increase the quantity of a specific item in the cart.
-POST /api/cart/decreaseQuantity: Decrease the quantity of a specific item in the cart.
-POST /api/cart/remove: Remove a specific item from the cart.
-POST /api/cart/resetCart: Reset the user's cart to empty.
-POST /api/cart/save: Save the current state of the user's cart.
-Static Files
-GET /images: Serve images from the MongoDb_server directory.
-GET /db: Serve the db.json file directly.
-Miscellaneous
-GET /getUserData: Fetch user data, specifically usernames and their carts.
-Running the Server
-The server can be started with the command npm start. It listens on the port specified in the .env file or defaults to port 3001.
+## API Endpoints
+
+Our backend server provides a comprehensive suite of API endpoints to manage users, products, and shopping cart functionalities. Below is a detailed list of available endpoints and their purposes.
+
+### User Management
+
+- **Authenticate User Login**
+  - `POST /login`
+  - Logs in a user with their credentials.
+
+- **Register New User Account**
+  - `POST /register`
+  - Registers a new user account with the required information.
+
+- **Request Password Reset Code**
+  - `POST /ForgetPassword`
+  - Sends a password reset code to the user's email.
+
+- **Reset User's Password**
+  - `POST /reset`
+  - Allows a user to reset their password using a verification code.
+
+### Product Management
+
+- **Fetch All Products**
+  - `GET /products`
+  - Retrieves a list of all products available.
+
+### Shopping Cart Operations
+
+- **Retrieve User's Shopping Cart**
+  - `GET /api/cart`
+  - Fetches the current state of a user's shopping cart.
+
+- **Add Item to Cart**
+  - `POST /api/cart/add`
+  - Adds a specified item to the user's shopping cart.
+
+- **Increase Item Quantity**
+  - `POST /api/cart/increaseQuantity`
+  - Increases the quantity of a specific item in the user's cart.
+
+- **Decrease Item Quantity**
+  - `POST /api/cart/decreaseQuantity`
+  - Decreases the quantity of a specific item in the user's cart.
+
+- **Remove Item from Cart**
+  - `POST /api/cart/remove`
+  - Removes a specified item from the user's shopping cart.
+
+- **Reset User's Cart**
+  - `POST /api/cart/resetCart`
+  - Resets the user's cart to empty, removing all items.
+
+- **Save Current Cart State**
+  - `POST /api/cart/save`
+  - Saves the current state of the user's shopping cart.
+
+### Static Files
+
+- **Serve Images**
+  - `GET /images`
+  - Serves images stored on the server, typically for product images.
+
+- **Serve Database File**
+  - `GET /db`
+  - Directly serves the `db.json` file, offering raw access to the mock database for debugging or direct queries.
+
+### Miscellaneous
+
+- **Fetch User Data**
+  - `GET /getUserData`
+  - Retrieves specific user data, such as usernames and their shopping carts, providing insight into user behavior and cart contents.
+
+## Running the Server
+
+Start the server to listen on the specified port in your `.env` file, or it will default to port 3001. With the server running, you're now ready to handle requests and manage data efficiently for **Taiwan Good Stuff**.
+
+Remember to check back for updates to our API and new features. We're constantly working to improve our platform and appreciate your support and feedback!
+
